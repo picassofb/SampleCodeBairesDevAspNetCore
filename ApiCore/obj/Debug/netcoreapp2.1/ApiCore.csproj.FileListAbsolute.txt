@@ -1,0 +1,14 @@
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\bin\Debug\netcoreapp2.1\ApiCore.deps.json
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\bin\Debug\netcoreapp2.1\ApiCore.runtimeconfig.json
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\bin\Debug\netcoreapp2.1\ApiCore.runtimeconfig.dev.json
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\bin\Debug\netcoreapp2.1\ApiCore.dll
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\bin\Debug\netcoreapp2.1\ApiCore.pdb
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.csprojAssemblyReference.cache
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.csproj.CoreCompileInputs.cache
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.RazorAssemblyInfo.cache
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.RazorAssemblyInfo.cs
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.AssemblyInfoInputs.cache
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.AssemblyInfo.cs
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.RazorTargetAssemblyInfo.cache
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.dll
+E:\ME.COM\c#\Practicas\ApiCore\ApiCore\obj\Debug\netcoreapp2.1\ApiCore.pdb
