@@ -1,6 +1,6 @@
 # Description
 
-This Api to create Projects and assing Tasks to them. 
+This Api was made to create Projects and assing Tasks to them using a Code First approach. 
 
 ```json
 {
@@ -61,8 +61,11 @@ First you need to change the appsettings.json file and change the defaultConnect
 
 ```
 
+After that is necessary to run **update-database** in the package management console to create the database and the tables.
 
-To use this first you need to create a user and login to obtain the JWT Token, with this token you can consume all the endpoints.
+
+
+To start using first you need to create a user and login to obtain the JWT Token, with this token you can consume all the endpoints.
 
 Please visit this [webpage](https://documenter.getpostman.com/view/2622970/S1ENxJ6i) for more information about this API.
 
