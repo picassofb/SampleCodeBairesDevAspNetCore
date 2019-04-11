@@ -19,7 +19,7 @@ namespace ApiCore.Models
         public string ProjectName { get; set; }
 
         [Required]
-        public bool Status { get; set; }
+        public bool IsDone { get; set; }
 
         [Required]
         public bool IsDeleted { get; set; }

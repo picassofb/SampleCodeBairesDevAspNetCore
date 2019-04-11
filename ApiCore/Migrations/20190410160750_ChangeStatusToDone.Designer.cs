@@ -4,14 +4,16 @@ using ApiCore.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApiCore.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190410160750_ChangeStatusToDone")]
+    partial class ChangeStatusToDone
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -75,9 +77,11 @@ namespace ApiCore.Migrations
                     b.Property<Guid>("ProjectId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("IsDeleted");
+                    b.Property<bool>("Done")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValue(true);
 
-                    b.Property<bool>("IsDone");
+                    b.Property<bool>("IsDeleted");
 
                     b.Property<string>("ProjectName")
                         .HasMaxLength(50);

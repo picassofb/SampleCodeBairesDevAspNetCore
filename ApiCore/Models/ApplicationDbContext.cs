@@ -12,7 +12,7 @@ namespace ApiCore.Models
         {
             modelBuilder.Entity<Project>().HasQueryFilter(x => x.IsDeleted == false);
             modelBuilder.Entity<ProjectTask>().HasQueryFilter(x => x.IsDeleted == false);
-            modelBuilder.Entity<Project>().Property(x => x.Status).HasDefaultValue(true);
+            //modelBuilder.Entity<Project>().Property(x => x.Done).HasDefaultValue(true);
 
             base.OnModelCreating(modelBuilder);
         }

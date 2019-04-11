@@ -18,7 +18,7 @@ namespace ApiCore.Controllers
 
         public ProjectController(ApplicationDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         [HttpGet]
@@ -61,6 +61,8 @@ namespace ApiCore.Controllers
 
             var objectToModified = _context.Attach(project);
             objectToModified.Property(x => x.ProjectName).IsModified = true;
+            objectToModified.Property(x => x.IsDone).IsModified = true;
+
             _context.SaveChanges();
 
             return Ok();
@@ -75,8 +77,10 @@ namespace ApiCore.Controllers
                 return NotFound();
 
             project.IsDeleted = true;
+
             var objectToModified = _context.Attach(project);
             objectToModified.Property(x => x.IsDeleted).IsModified = true;
+
             _context.SaveChanges();
             return Ok(project);
         }

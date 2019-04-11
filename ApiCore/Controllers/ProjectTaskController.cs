@@ -5,7 +5,6 @@ using ApiCore.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace ApiCore.Controllers
 {
@@ -18,7 +17,7 @@ namespace ApiCore.Controllers
 
         public ProjectTaskController(ApplicationDbContext context)
         {
-            this._context = context;
+            _context = context;
         }
 
         [HttpGet]
