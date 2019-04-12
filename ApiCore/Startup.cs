@@ -32,14 +32,17 @@ namespace ApiCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //DbContext with SqlServer
+            //Service to add Ef Core and connect to Sql Server
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("defaultConnection")));
 
+
+            //Service to add authentication custom rules
             services.AddIdentity<ApplicationUser, IdentityRole>(options =>
                     {
                         //These options are for demonstration purpose only
-                        options.Lockout.MaxFailedAccessAttempts = 5;
+
+                        options.Lockout.MaxFailedAccessAttempts = 5; // 5 Failed logins accepted
 
                         options.Password.RequiredLength = 6;
                         options.Password.RequiredUniqueChars = 3;
@@ -53,6 +56,8 @@ namespace ApiCore
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
+
+            // Service to add Authentication with JWT
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -67,9 +72,11 @@ namespace ApiCore
                             Encoding.UTF8.GetBytes(Configuration["llaveSecreta"])),
                     });
 
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(ConfigureJson);
         }
 
+        // This method was added to ignore the Loop Handling by Json and show the master detail correctly
         private static void ConfigureJson(MvcJsonOptions obj)
         {
             obj.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;

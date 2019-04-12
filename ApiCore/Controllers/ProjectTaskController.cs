@@ -21,6 +21,8 @@ namespace ApiCore.Controllers
         }
 
         [HttpGet]
+        // Returns all the Tasks assigned to ProjectId
+        // Route -> api/Project/{projectId}/ProjectTask
         public IEnumerable<ProjectTask> GetAllProjectTask(Guid projectId)
         {
             return _context.ProjectTasks.Where(x=>x.ProjectId == projectId).ToList();
@@ -28,6 +30,8 @@ namespace ApiCore.Controllers
 
 
         [HttpGet("{projectTaskId}", Name = "projectTaskCreated")]
+        // Returns the information of an specific Task.
+        // Route -> api/Project/{projectId}/ProjectTask/{ProjectTaskId}
         public IActionResult GetByIdProjectTask(Guid projectTaskId)
         {
             var projectTask = _context.ProjectTasks.FirstOrDefault(p => p.ProjectTaskId == projectTaskId);
@@ -39,6 +43,8 @@ namespace ApiCore.Controllers
         }
 
         [HttpPost]
+        // Create a Task assigned to ProjectId
+        // Route -> api/Project/{projectId}/ProjectTask/
         public IActionResult PostProjectTask([FromBody] ProjectTask projectTask, Guid projectId)
         {
             projectTask.ProjectId = projectId;
@@ -55,6 +61,8 @@ namespace ApiCore.Controllers
         }
 
         [HttpPut("{projectTaskId}")]
+        // Updates the information of an specific Task.
+        // Route -> api/Project/{projectId}/ProjectTask/{ProjectTaskId}
         public IActionResult PutProjectTask([FromBody] ProjectTask projectTask, Guid projectTaskId)
         {
             if (projectTask.ProjectTaskId != projectTaskId)
@@ -70,6 +78,8 @@ namespace ApiCore.Controllers
         }
 
         [HttpDelete("{projectTaskId}")]
+        // Soft Delete a Task changing the IsDeleted property to true if exists.
+        // Route -> api/Project/{projectId}/ProjectTask/{ProjectTaskId}
         public IActionResult DeleteProjectTask(Guid projectTaskId)
         {
             var projectTask = _context.ProjectTasks.FirstOrDefault(x => x.ProjectTaskId == projectTaskId);

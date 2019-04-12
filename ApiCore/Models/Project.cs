@@ -9,6 +9,7 @@ namespace ApiCore.Models
     {
         public Project()
         {
+            // Initialized ProjectTasks to avoid return null if the projects has no tasks
             ProjectTasks = new List<ProjectTask>();
         }
 
@@ -23,7 +24,6 @@ namespace ApiCore.Models
 
         [Required]
         public bool IsDeleted { get; set; }
-
 
         public List<ProjectTask> ProjectTasks { get; set; }
     }

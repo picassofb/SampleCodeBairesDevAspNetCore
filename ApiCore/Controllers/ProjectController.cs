@@ -14,7 +14,10 @@ namespace ApiCore.Controllers
     [ApiController]
     public class ProjectController : ControllerBase
     {
+
         private readonly ApplicationDbContext _context;
+
+        // Dependency injection to bring ApplicationDbContext and use EF
 
         public ProjectController(ApplicationDbContext context)
         {
@@ -22,12 +25,17 @@ namespace ApiCore.Controllers
         }
 
         [HttpGet]
+        // Return all the projects
+        // Route -> api/project/
         public IEnumerable<Project> GetProject()
         {
             return _context.Projects.ToList();
         }
 
+
         [HttpGet("{projectId}", Name = "projectCreated")]
+        // This Obtains the project information including all the tasks that has been assigned to it. 
+        // Route -->  api/project/{ProjectId}
         public IActionResult GetById(Guid projectId)
         {
             var project = _context.Projects.Include(x => x.ProjectTasks).FirstOrDefault(p => p.ProjectId == projectId);
@@ -39,6 +47,8 @@ namespace ApiCore.Controllers
         }
 
         [HttpPost]
+        // Creates a new Project
+        // Route -> api/project/
         public IActionResult PostProject([FromBody] Project project)
         {
             if (ModelState.IsValid)
@@ -54,6 +64,8 @@ namespace ApiCore.Controllers
         }
 
         [HttpPut("{projectId}")]
+        // Updates an existing Project
+        // Route -> api/project/{projectId}
         public IActionResult PutProject([FromBody] Project project, Guid projectId)
         {
             if (project.ProjectId != projectId)
@@ -69,6 +81,8 @@ namespace ApiCore.Controllers
         }
 
         [HttpDelete("{projectId}")]
+        // Soft Delete a project changing the IsDeleted property to true if exists.
+        // Route -> api/project/{projectId}
         public IActionResult DeleteProject(Guid projectId)
         {
             var project = _context.Projects.FirstOrDefault(x => x.ProjectId == projectId);

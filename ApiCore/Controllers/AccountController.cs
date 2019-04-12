@@ -82,7 +82,6 @@ namespace ApiCore.Controllers
             var claims = new[]
             {
                 new Claim(JwtRegisteredClaimNames.UniqueName, userInfo.Email),
-                new Claim("someKey", "Anything I Want"),
 
                 //Identify Token assigned to user
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
